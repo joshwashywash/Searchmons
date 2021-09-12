@@ -2,6 +2,7 @@ export default {
   globDirectory: 'public/',
   globPatterns: ['**/*.{ico,png,txt,js}'],
   ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
+  sourcemap: false,
   swDest: 'dist/sw.js',
   runtimeCaching: [
     {
