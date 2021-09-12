@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [
     svelte(),
     VitePWA({
+      includeAssets: ['favicon.ico'],
       strategies: 'injectManifest',
       srcDir: 'src/',
       filename: 'sw.ts',
