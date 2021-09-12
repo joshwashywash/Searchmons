@@ -1,19 +1,12 @@
 <script lang="ts">
   import { open } from '../stores';
   import { clickaway } from '../actions/clickaway';
-
-  let aside: HTMLElement;
-
-  $: if (!$open) {
-    aside?.blur();
-  }
 </script>
 
 <aside
   use:clickaway={() => {
     if ($open) open.toggle();
   }}
-  bind:this={aside}
   class:-translate-x-full={!$open}
   class="
     w-max
