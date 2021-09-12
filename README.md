@@ -11,5 +11,5 @@ $ npm run dev
 
 ## Todos
 
-- [ ] Deploy
+- [x] Deploy -> Deployed at https://josho.dev/searchmons
 - [ ] PWA
