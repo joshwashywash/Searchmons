@@ -16,4 +16,4 @@ $ npm run dev
   - [x] installable
   - [ ] detect when installed and run service worker accordingly
   - [ ] some kind of offline mode
-  - [ ] find a better image to use for manifest
+  - [x] find a better image to use for manifest
