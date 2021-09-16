@@ -4,6 +4,7 @@ import { generateSW } from "rollup-plugin-workbox";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/searchmons/",
   plugins: [
     svelte(),
     generateSW({
