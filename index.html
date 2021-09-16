@@ -11,8 +11,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
     <title>Pokedex</title>
     <script defer type="module" src="/src/main.ts"></script>
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js");
+        });
+      }
+    </script>
   </head>
   <body></body>
 </html>

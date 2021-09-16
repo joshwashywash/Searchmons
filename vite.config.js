@@ -1,40 +1,18 @@
-import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { VitePWA } from 'vite-plugin-pwa';
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import { injectManifest } from "rollup-plugin-workbox";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/searchmons/',
+  base: "/searchmons/",
   plugins: [
     svelte(),
-    VitePWA({
-      includeAssets: ['favicon.ico'],
-      strategies: 'injectManifest',
-      srcDir: 'src/',
-      filename: 'sw.ts',
-      manifest: {
-        name: 'Searchmons',
-        short_name: 'Searchmons',
-        start_url: '.',
-        display: 'standalone',
-        background_color: '#3d405b',
-        theme_color: '#f4f1de',
-        description: 'A searchable Pokedex app.',
-        icons: [
-          {
-            src: 'icons/manifest-icon-192.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'maskable any'
-          },
-          {
-            src: 'icons/manifest-icon-512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable any'
-          }
-        ]
-      }
-    })
-  ]
+    injectManifest({
+      mode: "production",
+      swDest: "dist/sw.js",
+      swSrc: "sw.js",
+      globDirectory: "public/",
+      globPatterns: ["**/*.{ico,png,json,txt}"],
+    }),
+  ],
 });

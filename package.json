@@ -1,4 +1,5 @@
 {
+  "author": "Josh Oertel",
   "name": "pokedex",
   "version": "0.0.0",
   "type": "module",
@@ -6,22 +7,25 @@
     "dev": "vite --host",
     "build": "vite build",
     "serve": "vite preview --host",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
     "@tsconfig/svelte": "^2.0.1",
     "autoprefixer": "^10.3.1",
     "cssnano": "^5.0.6",
+    "husky": "^7.0.0",
     "postcss": "^8.3.5",
     "postcss-load-config": "^3.1.0",
+    "pretty-quick": "^3.1.1",
+    "rollup-plugin-workbox": "^6.2.0",
     "svelte": "^3.37.0",
     "svelte-check": "^2.1.0",
     "svelte-preprocess": "^4.7.4",
     "tailwindcss": "^2.2.7",
     "tslib": "^2.2.0",
     "typescript": "^4.3.2",
-    "vite": "^2.4.4",
-    "vite-plugin-pwa": "^0.11.2"
+    "vite": "^2.4.4"
   }
 }
