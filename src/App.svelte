@@ -10,10 +10,6 @@
 	export let pokemons: Pokemon[] = [];
 	let value: '';
 
-	// export const fetchJSON = <T>(...params: Parameters<typeof fetch>) => {
-	//   return fetch(...params).then(resp => resp.json() as Promise<T>);
-	// };
-
 	onMount(() => {
 		fetch('https://pokeapi.co/api/v2/pokemon?limit=151').then((response) => {
 			(response.json() as Promise<{ results: Pokemon[] }>).then((json) => {
@@ -27,7 +23,9 @@
 	});
 </script>
 
-<svelte:head><title>Searchmons</title></svelte:head>
+<svelte:head>
+	<title>Searchmons</title>
+</svelte:head>
 <main class="relative h-screen flex flex-col md:flex-row">
 	<button
 		aria-label="open"
@@ -48,16 +46,18 @@
 		</svg>
 	</button>
 	<SidePanel>
-		<Search bind:value placeholder={'Search...'} />
-		<List items={filtered} let:item={pokemon}>
-			<button
-				class="hover:translate-x-4 transition ease-in-out"
-				class:selected={$selectedPokemon === pokemon}
-				on:click={() => selectedPokemon.set(pokemon)}
-			>
-				{pokemon.name}
-			</button>
-		</List>
+		<svelte:fragment slot="content">
+			<Search bind:value placeholder={'Search...'} />
+			<List items={filtered} let:item={pokemon}>
+				<button
+					class="hover:translate-x-4 transition ease-in-out"
+					class:selected={$selectedPokemon === pokemon}
+					on:click={() => selectedPokemon.set(pokemon)}
+				>
+					{pokemon.name}
+				</button>
+			</List>
+		</svelte:fragment>
 	</SidePanel>
 	{#if $selectedPokemon}
 		<Figure
