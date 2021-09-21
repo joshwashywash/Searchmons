@@ -5,21 +5,12 @@
 	import SidePanel from './components/SidePanel.svelte';
 	import type { Pokemon } from './types';
 	import { id, open, selectedPokemon } from './stores/';
-	import { onMount } from 'svelte';
 
 	export let pokemons: Pokemon[] = [];
-	let value: '';
-
-	onMount(() => {
-		fetch('https://pokeapi.co/api/v2/pokemon?limit=151').then((response) => {
-			(response.json() as Promise<{ results: Pokemon[] }>).then((json) => {
-				pokemons = json.results;
-			});
-		});
-	});
+	let value = '';
 
 	$: filtered = pokemons.filter(({ name }) => {
-		return name.includes(value?.trim().toLowerCase());
+		return name.includes(value.trim().toLowerCase());
 	});
 </script>
 
