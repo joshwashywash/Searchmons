@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { createFetcher } from '../functions';
+	import { fetchBlob } from '../functions';
 
 	import { blur } from 'svelte/transition';
 	export let alt = '';
 	export let caption = '';
 	export let src = '';
-
-	const fetchBlob = createFetcher((response: Response) => response.blob());
 </script>
 
 {#await fetchBlob(src) then blob}
