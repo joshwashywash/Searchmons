@@ -9,7 +9,7 @@
 	}}
 	class:-translate-x-full={!$open}
 	class="
-    w-max
+		w-max
     h-full
     flex
     flex-col

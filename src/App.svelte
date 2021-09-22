@@ -4,7 +4,7 @@
 	import Search from './components/Search.svelte';
 	import SidePanel from './components/SidePanel.svelte';
 	import type { Pokemon } from './types';
-	import { id, open, selectedPokemon } from './stores/';
+	import { id, open, selectedPokemon } from './stores';
 
 	export let pokemons: Pokemon[] = [];
 	let value = '';
