@@ -2,9 +2,11 @@ import './app.postcss';
 import App from './App.svelte';
 
 import type { Pokemon } from 'src/types';
-import { fetchJSON } from './functions';
+import { createFetcher } from './functions';
 
-const json = await fetchJSON<{ results: Pokemon[] }>(
+const fetchJSON = createFetcher((response: Response) => response.json());
+
+const json: { results: Pokemon[] } = await fetchJSON(
 	'https://pokeapi.co/api/v2/pokemon?limit=151'
 );
 
