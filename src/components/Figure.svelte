@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fetchBlob } from '../functions';
-
 	import { blur } from 'svelte/transition';
+
 	export let alt = '';
 	export let caption = '';
 	export let src = '';

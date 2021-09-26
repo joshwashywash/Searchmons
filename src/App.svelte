@@ -3,21 +3,18 @@
 	import List from './components/List.svelte';
 	import Search from './components/Search.svelte';
 	import SidePanel from './components/SidePanel.svelte';
-	import type { Pokemon, PokemonResult } from './types';
+	import type { Pokemon } from './types';
 	import { open, selectedPokemon } from './stores';
 	import { onMount } from 'svelte';
-	import { fetchJSON } from './functions';
+	import { fetchJSON, getID } from './functions';
 
 	let pokemons: Pokemon[] = [];
 	let value = '';
 
 	onMount(() => {
 		fetchJSON('https://pokeapi.co/api/v2/pokemon?limit=151').then(
-			(json: { results: PokemonResult[] }) => {
-				pokemons = json.results.map(({ name }, index) => ({
-					id: index + 1,
-					name
-				}));
+			(json: { results: Pokemon[] }) => {
+				pokemons = json.results;
 			}
 		);
 	});
@@ -67,7 +64,9 @@
 		<Figure
 			alt={$selectedPokemon.name}
 			caption={$selectedPokemon.name}
-			src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{$selectedPokemon.id}.png"
+			src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{getID(
+				$selectedPokemon.url
+			)}.png"
 		/>
 	{/if}
 </main>

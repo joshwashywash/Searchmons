@@ -1,9 +1,4 @@
 export interface Pokemon {
-	id: number;
 	name: string;
-}
-
-export interface PokemonResult {
-	name: string;
-	url: string;
+	url: `https://pokeapi.co/api/v2/pokemon/${number}/`;
 }
