@@ -11,18 +11,13 @@
 	class="
 		w-max
     h-full
-    flex
-    flex-col
-    items-start
-    gap-2
+    flex flex-col items-start gap-2
     absolute
     md:relative
-    inset-0
     p-4
     bg-dark-dark
     overflow-y-scroll
-    opacity-95
-    md:opacity-100
+    opacity-95 md:opacity-100
     md:transform-none
     transition
     ease-in-out

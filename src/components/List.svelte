@@ -4,9 +4,9 @@
 </script>
 
 <ul>
-	{#each items as item}
+	{#each items as item, index}
 		<li>
-			<slot {item} />
+			<slot {item} {index} />
 		</li>
 	{/each}
 </ul>
