@@ -7,18 +7,17 @@
 	use:clickaway={() => {
 		if ($open) open.toggle();
 	}}
-	class:-translate-x-full={!$open}
+	class:closed={!$open}
 	class="
+		absolute
+		md:relative
 		w-max
     h-full
     flex flex-col items-start gap-2
-    absolute
-    md:relative
     p-4
     bg-dark-dark
     overflow-y-scroll
     opacity-95 md:opacity-100
-    md:transform-none
     transition
     ease-in-out
     z-10
@@ -40,3 +39,9 @@
 	</button>
 	<slot name="content" />
 </aside>
+
+<style lang="postcss">
+	.closed {
+		@apply -translate-x-full md:transform-none;
+	}
+</style>
