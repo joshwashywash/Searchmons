@@ -10,17 +10,16 @@
 	class:closed={!$open}
 	class="
 		absolute
-		md:relative
+		top-0
 		w-max
     h-full
     flex flex-col items-start gap-2
     p-4
     bg-dark-dark
     overflow-y-scroll
-    opacity-95 md:opacity-100
+    opacity-95
     transition
     ease-in-out
-    z-10
   "
 >
 	<button aria-label="close" class="md:hidden" on:click={open.toggle}>
