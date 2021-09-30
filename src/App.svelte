@@ -30,7 +30,7 @@
 <main class="p-4 h-screen flex flex-col">
 	<button
 		aria-label="open"
-		class="self-start md:hidden"
+		class="self-start"
 		on:click|stopPropagation={open.toggle}
 	>
 		<svg
@@ -57,21 +57,22 @@
 		/>
 	{/if}
 </main>
-<!-- TODO make use of svelte transitions to listen for outroend to set $open and eliminate stopPropagation -->
-<SidePanel>
-	<svelte:fragment slot="content">
-		<Search bind:value placeholder={'Search...'} />
-		<List items={filtered} let:item={pokemon}>
-			<button
-				class="hover:translate-x-4 transition ease-in-out"
-				class:selected={$selectedPokemon === pokemon}
-				on:click={() => selectedPokemon.set(pokemon)}
-			>
-				{pokemon.name}
-			</button>
-		</List>
-	</svelte:fragment>
-</SidePanel>
+{#if $open}
+	<SidePanel>
+		<svelte:fragment slot="content">
+			<Search bind:value placeholder={'Search...'} />
+			<List items={filtered} let:item={pokemon}>
+				<button
+					class="hover:translate-x-4 transition ease-in-out"
+					class:selected={$selectedPokemon === pokemon}
+					on:click={() => selectedPokemon.set(pokemon)}
+				>
+					{pokemon.name}
+				</button>
+			</List>
+		</svelte:fragment>
+	</SidePanel>
+{/if}
 
 <style lang="postcss">
 	.selected {

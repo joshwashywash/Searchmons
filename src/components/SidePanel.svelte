@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { open } from '../stores';
 	import { clickaway } from '../actions/clickaway';
+	import { fly } from 'svelte/transition';
+
+	let width: number;
 </script>
 
 <aside
-	use:clickaway={() => {
-		if ($open) open.toggle();
-	}}
-	class:closed={!$open}
+	bind:clientWidth={width}
+	transition:fly={{ x: -width }}
+	use:clickaway={open.toggle}
 	class="
 		absolute
 		top-0
@@ -38,9 +40,3 @@
 	</button>
 	<slot name="content" />
 </aside>
-
-<style lang="postcss">
-	.closed {
-		@apply -translate-x-full md:transform-none;
-	}
-</style>
