@@ -24,7 +24,7 @@
     ease-in-out
   "
 >
-	<button aria-label="close" class="md:hidden" on:click={open.toggle}>
+	<button aria-label="close" on:click={open.toggle}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="h-8 w-8"

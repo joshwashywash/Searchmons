@@ -1,6 +1,6 @@
 export const clickaway = (node: HTMLElement, fn: () => void) => {
 	const click = (event: Event) => {
-		if (!node.contains(event.target as Node)) {
+		if (!event.composedPath().includes(node)) {
 			fn();
 		}
 	};
