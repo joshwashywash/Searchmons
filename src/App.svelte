@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import Figure from './components/Figure.svelte';
 	import List from './components/List.svelte';
 	import Search from './components/Search.svelte';
