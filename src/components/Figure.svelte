@@ -9,7 +9,7 @@
 
 {#await fetchBlob(src) then blob}
 	<figure
-		class="flex flex-col items-center justify-center flex-grow"
+		class="flex flex-col items-center justify-center grow"
 		in:blur={{ amount: 10 }}
 	>
 		<img src={URL.createObjectURL(blob)} {alt} />

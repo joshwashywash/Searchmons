@@ -1,6 +1,6 @@
 # Pokedex
 
-refer to [vite's svelte-ts starter template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-svelte-ts#readme)
+Deployed at https://josho.dev/searchmons
 
 ## Quick Start
 
@@ -11,7 +11,7 @@ $ npm run dev
 
 ## Todos
 
-- [x] Deploy -> Deployed at https://josho.dev/searchmons
+- [x] Deploy
 - [ ] PWA
   - [x] installable
   - [ ] detect when installed and run service worker accordingly
