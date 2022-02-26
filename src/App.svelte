@@ -42,9 +42,9 @@
     <Figure
       alt={$selectedPokemon.name}
       caption={$selectedPokemon.name}
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{getID(
+      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${getID(
         $selectedPokemon.url
-      )}.png"
+      )}.png`}
     />
   {/if}
 </main>

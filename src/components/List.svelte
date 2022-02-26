@@ -1,12 +1,12 @@
 <script lang="ts">
-	type Item = $$Generic;
-	export let items: Item[] = [];
+  type Item = $$Generic;
+  export let items: Item[] = [];
 </script>
 
 <ul>
-	{#each items as item, index}
-		<li>
-			<slot {item} {index} />
-		</li>
-	{/each}
+  {#each items as item, index}
+    <li>
+      <slot {item} {index} />
+    </li>
+  {/each}
 </ul>
