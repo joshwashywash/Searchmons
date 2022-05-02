@@ -6,10 +6,15 @@
   import SearchIcon from './svgs/SearchIcon.svelte';
   import SidePanel from './components/SidePanel.svelte';
   import type { Pokemon } from './types';
+  import { onMount } from 'svelte';
   import { open, selectedPokemon } from './stores';
 
   export let pokemons: Pokemon[];
   let value = '';
+
+  onMount(() => {
+    selectedPokemon.set(pokemons[Math.floor(Math.random() * pokemons.length)]);
+  });
 
   $: filtered = pokemons.filter(({ name }) => {
     return name.includes(value.trim().toLowerCase());
