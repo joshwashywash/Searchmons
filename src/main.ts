@@ -9,7 +9,7 @@ const json: { results: PokemonResult[] } = await fetchJSON(
 
 const pokemons: Pokemon[] = json.results.map(({ name, url }) => ({
   name,
-  id: url.split('/').at(-2),
+  id: parseInt(url.split('/').at(-2)),
 }));
 
 const app = new App({

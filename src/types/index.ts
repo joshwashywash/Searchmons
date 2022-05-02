@@ -5,5 +5,5 @@ export interface PokemonResult {
 
 export interface Pokemon {
   name: string;
-  id: string;
+  id: number;
 }
