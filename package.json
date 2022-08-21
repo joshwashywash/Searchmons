@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
+    "build-production": "vite build --base=/searchmons/",
     "serve": "vite preview --host",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "prepare": "husky install"
